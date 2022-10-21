@@ -1,12 +1,7 @@
 github_users:
-  - torvalds
-  - alshedivat
+  - pherber3
+  - linwang98
+  - VoyagerWSH
 
 github_repos:
-  - alshedivat/al-folio
-  - twbs/bootstrap
-  - jekyll/jekyll
-  - jquery/jquery
-  - FortAwesome/Font-Awesome
-  - jpswalsh/academicons
-  - mathjax/MathJax
+  - Wilmer-Glaucoma-ML/example_repo
