@@ -100,25 +100,27 @@ input[type="value"] {
 
 <table class="tb" id="accuracyTable" style="width:100%">
   <tr>
-    <td><b>VF Accuracy (%)</b></td>
-    <td><b>OCT Accuracy (%)</b></td>
-    <td><b>Combined Accuracy (%)</b></td>
+    <td style="text-align:center"><b>VF Accuracy (%)</b></td>
+    <td style="text-align:center"><b>OCT Accuracy (%)</b></td>
+    <td style="text-align:center"><b>Combined Accuracy (%)</b></td>
   </tr>
   <tr>
-    <td>0</td>
-    <td>0</td>
-    <td>0</td>
+    <td style="text-align:center">&nbsp;</td>
+    <td style="text-align:center">&nbsp;</td>
+    <td style="text-align:center">&nbsp;</td>
   </tr>
 </table>
+<p><center><b>Percentiles</b></center></p>
 <br>
+
 <table class="tb" id="pctTable" style="width:100%">
   <tr>
-    <td><b>VF Percentile (%)</b></td>
-    <td><b>OCT Percentile (%)</b></td>
+    <td style="text-align:center"><b>VF Percentile (%)</b></td>
+    <td style="text-align:center"><b>OCT Percentile (%)</b></td>
   </tr>
   <tr>
-    <td>0</td>
-    <td>0</td>
+    <td style="text-align:center">&nbsp;</td>
+    <td style="text-align:center">&nbsp;</td>
   </tr>
 </table>
 
@@ -209,15 +211,51 @@ function calculateAccuracy(vf_freq, oct_freq, vf_input_type, oct_input_type, vf_
   return [vf_percent_correct, vf_change, oct_percent_correct, oct_change, combined_percent_correct];
 }
 
+// Get number of significant figures from inputs - MUST be string
+function getSignificantDigitCount(n) {
+  var dec_sent = false;
+  // If input has a decimal place, set flag to true and append "1" to the end of it.
+  // This is a hack around JavaScript engine automatically converting "1.00" to "1"
+  // but now it will accurately keep it as "1.001" and then we subtract 1 sig fig at the end if flag is true.
+  if (n.indexOf(".") != -1) {
+    n += 1
+    dec_sent = true;
+  }
+  n = Math.abs(n.replace(".", "")); //remove decimal and make positive
+  if (n == 0) return 0;
+  while (n != 0 && n % 10 == 0) n /= 10; //kill the 0s at the end of n
+  if (dec_sent) {
+    return Math.floor(Math.log(n) / Math.LN10)
+  }
+  return Math.floor(Math.log(n) / Math.LN10) + 1; //get number of digits
+}
+
 // This is where all the values from the page are actually read in and then the table values are updated. 
 function getInputValue() {
-  //Read in all inputs
-  var vf_freq = Number(document.getElementById("vfFreqInput").value);
-  var vf_rate = Number(document.getElementById("measurementInputVF1").value);
+  // Read in all inputs
+  var vf_freq = Math.round(document.getElementById("vfFreqInput").value);
+  var vf_rate = document.getElementById("measurementInputVF1").value;
   var vf_pctl = null;
-  var oct_freq = Number(document.getElementById("octFreqInput").value);
-  var oct_rate = Number(document.getElementById("measurementInputOCT1").value);
+  var oct_freq = Math.round(document.getElementById("octFreqInput").value);
+  var oct_rate = document.getElementById("measurementInputOCT1").value;
   var oct_pctl = null;
+  // Flags to check if only VF or only OCT info has been input
+  var only_vf = false;
+  var only_oct = false;
+  // First check if VF is the only thing that has been input
+  if (!oct_freq && !oct_rate) {
+    only_vf = true;
+    var min_sigs = getSignificantDigitCount(vf_rate);
+  // Then check if OCT is the only thing that has been input
+  } else if (!vf_freq && !vf_rate) {
+    only_oct = true;
+    var min_sigs = getSignificantDigitCount(oct_rate);
+  } else {
+    // Get significant figures for rounding later (ignoring frequency inputs since they are integers)
+    vf_rate_sigs = getSignificantDigitCount(vf_rate);
+    oct_rate_sigs = getSignificantDigitCount(oct_rate);
+    var min_sigs = Math.min(vf_rate_sigs, oct_rate_sigs);
+  }
 
   //If there are inputs for rate AND percentile for vf or oct then throw an error
   if (vf_rate && vf_pctl) {
@@ -250,17 +288,33 @@ function getInputValue() {
   var oct_percent_correct = pct_array[2];
   var oct_change = pct_array[3];
   var combined_percent_correct = pct_array[4];
-  // Update table
+  //Round decimal places of accuracies to minimum sig figs from above
+  vf_percent_correct = vf_percent_correct.toPrecision(min_sigs);
+  oct_percent_correct = oct_percent_correct.toPrecision(min_sigs);
+  combined_percent_correct = combined_percent_correct.toPrecision(min_sigs);
+  // Update tables
   var acc_table = document.getElementById('accuracyTable');
-  acc_table.rows[1].cells[0].innerHTML = vf_percent_correct;
-  acc_table.rows[1].cells[1].innerHTML = oct_percent_correct;
-  acc_table.rows[1].cells[2].innerHTML = combined_percent_correct;
-  // Update percentile table
   var pct_table = document.getElementById('pctTable');
-  pct_table.rows[1].cells[0].innerHTML = vf_change;
-  pct_table.rows[1].cells[1].innerHTML = oct_change;
+  if (only_vf) {
+    acc_table.rows[1].cells[0].innerHTML = vf_percent_correct;
+    acc_table.rows[1].cells[1].innerHTML = "";
+    acc_table.rows[1].cells[2].innerHTML = "";
+    pct_table.rows[1].cells[0].innerHTML = vf_change;
+    pct_table.rows[1].cells[1].innerHTML = "";
+  } else if (only_oct) {
+    acc_table.rows[1].cells[0].innerHTML = "";
+    acc_table.rows[1].cells[1].innerHTML = oct_percent_correct;
+    acc_table.rows[1].cells[2].innerHTML = "";
+    pct_table.rows[1].cells[0].innerHTML = "";
+    pct_table.rows[1].cells[1].innerHTML = oct_change.toPrecision(2);
+  } else {
+    acc_table.rows[1].cells[0].innerHTML = vf_percent_correct;
+    acc_table.rows[1].cells[1].innerHTML = oct_percent_correct;
+    acc_table.rows[1].cells[2].innerHTML = combined_percent_correct;
+    pct_table.rows[1].cells[0].innerHTML = vf_change;
+    pct_table.rows[1].cells[1].innerHTML = oct_change.toPrecision(2);
+  }
   
-
 } 
 </script>
 </body>
