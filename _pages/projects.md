@@ -8,7 +8,7 @@ nav_order: 1
 #display_categories: [work, fun]
 horizontal: true
 ---
-
+<hr>
 <div class="projects">
 {%- if site.enable_project_categories and page.display_categories %}
   <!-- Display categorized projects -->

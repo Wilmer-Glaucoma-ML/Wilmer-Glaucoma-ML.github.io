@@ -5,6 +5,10 @@ description:
 importance: 1
 ---
 <style>
+.post-header {
+  text-align: center;
+}
+
 table, th, td {
   border:1px solid black;
 }
@@ -24,8 +28,8 @@ input[type="value"] {
   border: 2px solid black;
   border-radius: 0px;
 }
-
 </style>
+
 <body>
   This calculator is valid for estimating accuracy over a 2-year period, but you should enter frequencies on a per-year basis. 
   <p></p>
@@ -49,14 +53,6 @@ input[type="value"] {
         required
       >
       <b>dB/year</b>
-      <!-- <label id="measurementInVF2-label" for="measurementInVF2"></label>
-      <input
-        type="value"
-        name="measurementInVF2"
-        id="measurementInputVF2"
-        class="form-control"
-      >
-      <b>percentile (50<sup>th</sup> to 99<sup>th</sup>)</b> -->
     </div>
     <hr>
     <div class="form-group">
@@ -79,14 +75,6 @@ input[type="value"] {
         required
       >
       <b>µm/year</b>
-      <!-- <label id="measurementInOCT2-label" for="measurementInOCT2"></label>
-      <input
-        type="value"
-        name="measurementInOCT2"
-        id="measurementInputOCT2"
-        class="form-control"
-      >
-      <b>percentile (50<sup>th</sup> to 99<sup>th</sup>)</b> -->
     </div>
 
 <div class="buttondiv">
@@ -125,26 +113,16 @@ input[type="value"] {
 </table>
 
 <script> 
-// Function to return the index of the closest number in an array.
-function closest(num, arr) {
-  var curr = arr[0];
-  var curr_idx = 0;
-  var diff = Math.abs(num - curr);
-  for (var val = 0; val < arr.length; val++) {
-    var newdiff = Math.abs(num - arr[val]);
-    if (newdiff < diff) {
-      diff = newdiff;
-      curr = arr[val];
-      curr_idx = val;
-    }
-  }
-  return curr_idx;
+// Throws an alert pop up box whenever an error is thrown by the program.
+window.onerror = function(msg, url, linenumber) {
+    alert(msg);
+    return true;
 }
 
 // Function to calculate the  percent correct based on our paper.
 function accuracyEqn(smp, lookup_idx, lookup_type) {
   // Need to multiply the frequency value by 2 to make it on the rate of 2 years instead of the input 1 year
-  smp = smp * 2;
+  smp = (smp * 2) + 1;
   if (lookup_type == 'vf') {
     // Lookup table for the three vf coefficients
     const vf_lookup = {
@@ -177,27 +155,78 @@ function combinedAccuracy(vf_percent_correct, oct_percent_correct) {
 }
 
 // Function that handles the main information flow to perform the calculations.
-function calculateAccuracy(vf_freq, oct_freq, vf_measurement_input, oct_measurement_input) {
-  // VF Tables
-  const vf_percentiles = [0.99,0.98,0.97,0.96,0.95,0.94,0.93,0.92,0.91,0.9,0.89,0.88,0.87,0.86,0.85,0.84,0.83,0.82,0.81,0.8,0.79,0.78,0.77,0.76,0.75,0.74,0.73,0.72,0.71,0.7,0.69,0.68,0.67,0.66,0.65,0.64,0.63,0.62,0.61,0.6,0.59,0.58,0.57,0.56,0.55,0.54,0.53,0.52,0.51,0.5];
+function calculateAccuracy(vf_freq, oct_freq, vf_actual_rate, oct_actual_rate) {
+  // Percentile Table
+  const percentiles = [0.99,0.98,0.97,0.96,0.95,0.94,0.93,0.92,0.91,0.9,0.89,0.88,0.87,0.86,0.85,0.84,0.83,0.82,0.81,0.8,0.79,0.78,0.77,0.76,0.75,0.74,0.73,0.72,0.71,0.7,0.69,0.68,0.67,0.66,0.65,0.64,0.63,0.62,0.61,0.6,0.59,0.58,0.57,0.56,0.55,0.54,0.53,0.52,0.51,0.5];
+  // VF Table
   const db_pyear = [-2.375374179,-1.87072991,-1.55882768,-1.354906634,-1.209968329,-1.10005846,-1.004460165,-0.922879731,-0.850669103,-0.788616302,-0.73812498,-0.694618166,-0.657602418,-0.622323225,-0.594619155,-0.569041382,-0.545408203,-0.51918586,-0.495643593,-0.474408781,-0.455362716,-0.43417603,-0.41702764,-0.401546448,-0.38535631,-0.370813706,-0.357395279,-0.344351564,-0.332899923,-0.32056724,-0.30908592,-0.296439662,-0.284030788,-0.273758069,-0.263631487,-0.253395759,-0.242297973,-0.2336445,-0.223724021,-0.215218543,-0.206087714,-0.197988734,-0.189993294,-0.182100379,-0.174189643,-0.166953802,-0.159186689,-0.151801921,-0.144212655,-0.137260077];
-  // OCT Tables
-  const oct_percentiles = [0.99,0.98,0.97,0.96,0.95,0.94,0.93,0.92,0.91,0.9,0.89,0.88,0.87,0.86,0.85,0.84,0.83,0.82,0.81,0.8,0.79,0.78,0.77,0.76,0.75,0.74,0.73,0.72,0.71,0.7,0.69,0.68,0.67,0.66,0.65,0.64,0.63,0.62,0.61,0.6,0.59,0.58,0.57,0.56,0.55,0.54,0.53,0.52,0.51,0.5];
+  // OCT Table
   const mic_pyear = [-59.10676741,-21.06141589,-10.61985367,-6.43719542,-4.867978254,-3.929476474,-3.29888707,-2.868740323,-2.575112527,-2.348728534,-2.172631297,-2.020366034,-1.899064351,-1.797026962,-1.68954472,-1.602117914,-1.533984613,-1.464555097,-1.407078688,-1.350655596,-1.296282342,-1.237350255,-1.181807662,-1.134068909,-1.088528277,-1.04379893,-1.000612736,-0.961338114,-0.92650516,-0.894411349,-0.862917964,-0.831970156,-0.798927213,-0.772183197,-0.7445282,-0.718996287,-0.69435203,-0.664350749,-0.639762671,-0.61411954,-0.591691858,-0.566843864,-0.546191311,-0.522478076,-0.500657912,-0.48070557,-0.457669937,-0.436351304,-0.415084497,-0.39408508];
-  var vf_change = 0;
-  var oct_change = 0;
-  // Calculate VF information
-  var vf_lookup_idx = closest(vf_measurement_input, db_pyear);
-  vf_change = vf_percentiles[vf_lookup_idx] * 100;
-  // Calculate OCT information
-  var oct_lookup_idx = closest(oct_measurement_input, mic_pyear);
-  oct_change = oct_percentiles[oct_lookup_idx] * 100;
+
+  // ERROR CHECKING
+  // If vf_rate is below the 99th percentile or above 0 then throw input error
+  if (vf_actual_rate < db_pyear[0] || vf_actual_rate > 0) {
+    throw new Error('VF rate is out of range. Please enter a value between our 99th percentile (-2.375) and 0.');
+  // If oct_rate is below the 99th percentile or above 0 then throw input error
+  } else if (oct_actual_rate < mic_pyear[0] || oct_actual_rate > 0) {
+    throw new Error('OCT rate is out of range. Please enter a value between our 99th percentile (-59.11) and 0.');
+  }
+
+  // Define way to find two closest numbers from array
+  const findClosest = (arr = [], target = 1) => {
+   const size = 2;
+   return arr.sort((a, b) => {
+      const distanceA = Math.abs(a - target)
+      const distanceB = Math.abs(b - target)
+      if (distanceA === distanceB) {
+         return a - b
+      }
+      return distanceA - distanceB
+   }).slice(0, size)
+   .sort((a, b) => a - b);
+  };
+
+  // CALCULATE VF INFORMATION
+  // Get two closest vf rates from our table
+  var vf_closest_array = findClosest([...db_pyear], vf_actual_rate);
+  var vf_pctl_rate1 = vf_closest_array[0];
+  var vf_pctl_rate2 = vf_closest_array[1];
+  // Get distance between the two closest vf rates
+  var vf_rate_distance = Math.abs(vf_pctl_rate1 - vf_pctl_rate2);
+  // Get right-most value in the rate array between the two
+  var vf_rate_rhs = Math.max(vf_pctl_rate1, vf_pctl_rate2);
+  // Get distance between our actual rate and the right-hand rate
+  var vf_rhs_distance = Math.abs(vf_actual_rate - vf_rate_rhs);
+  // Get the percentage of the distance between the left-hand and right-hand rates that our actual rate is
+  var vf_interpolate_pctl = vf_rhs_distance / vf_rate_distance;
+  // Get the index of the rate array that the closest rate to our actual is
+  var vf_lookup_idx = db_pyear.indexOf(vf_rate_rhs);
+  // Use that index to look up what percentile it is and then add the interpolated distance percent
+  var vf_pctl = (percentiles[vf_lookup_idx]*100) + vf_interpolate_pctl;
+
+  // CALCULATE OCT INFORMATION
+  // Get two closest oct rates from our table
+  var oct_closest_array = findClosest([...mic_pyear], oct_actual_rate);
+  var oct_pctl_rate1 = oct_closest_array[0];
+  var oct_pctl_rate2 = oct_closest_array[1];
+  // Get distance between the two closest oct rates
+  var oct_rate_distance = Math.abs(oct_pctl_rate1 - oct_pctl_rate2);
+  // Get right-most value in the rate array between the two
+  var oct_rate_rhs = Math.max(oct_pctl_rate1, oct_pctl_rate2);
+  // Get distance between our actual rate and the right-hand rate
+  var oct_rhs_distance = Math.abs(oct_actual_rate - oct_rate_rhs);
+  // Get the percentage of the distance between the left-hand and right-hand rates that our actual rate is
+  var oct_interpolate_pctl = oct_rhs_distance / oct_rate_distance;
+  // Get the index of the rate array that the closest rate to our actual is
+  var oct_lookup_idx = mic_pyear.indexOf(oct_rate_rhs);
+  // Use that index to look up what percentile it is and then add the interpolated distance percent
+  var oct_pctl = (percentiles[oct_lookup_idx]*100) + oct_interpolate_pctl;
   
   // Use the accuracy equations to calculate percent correct for everything
   var vf_percent_correct = accuracyEqn(vf_freq, vf_lookup_idx, 'vf');
   var oct_percent_correct = accuracyEqn(oct_freq, oct_lookup_idx, 'oct');
   var combined_percent_correct = combinedAccuracy(vf_percent_correct, oct_percent_correct);
-  return [vf_percent_correct, vf_change, oct_percent_correct, oct_change, combined_percent_correct];
+  return [vf_percent_correct, vf_pctl, oct_percent_correct, oct_pctl, combined_percent_correct];
 }
 
 // Get number of significant figures from inputs - MUST be string
@@ -226,18 +255,51 @@ function getInputValue() {
   var vf_rate = document.getElementById("measurementInputVF1").value;
   var oct_freq = Math.round(document.getElementById("octFreqInput").value);
   var oct_rate = document.getElementById("measurementInputOCT1").value;
+
   // Flags to check if only VF or only OCT info has been input
   var only_vf = false;
   var only_oct = false;
   // First check if VF is the only thing that has been input
   if (!oct_freq && !oct_rate) {
+    // ERROR CHECKING
+    if (isNaN(vf_freq)) {
+      throw new Error('VF frequency is not a number.');
+    } else if (vf_freq < 1 || vf_freq > 12) {
+      throw new Error('VF frequency must be greater than 1 and less than 12, as we only calculated accuracy for that range.')
+    } else if (isNaN(Number(vf_rate))) {
+      throw new Error('VF rate is not a number.');
+    }
     only_vf = true;
+    // Get significant figures for rounding later (ignoring frequency inputs since they are integers)
     var min_sigs = getSignificantDigitCount(vf_rate);
   // Then check if OCT is the only thing that has been input
   } else if (!vf_freq && !vf_rate) {
+    // ERROR CHECKING
+    if (isNaN(oct_freq)) {
+      throw new Error('OCT frequency is not a number.');
+    } else if (oct_freq < 1 || oct_freq > 12) {
+      throw new Error('OCT frequency must be greater than 1 and less than 12, as we only calculated accuracy for that range.')
+    } else if (isNaN(Number(oct_rate))) {
+      throw new Error('OCT rate is not a number.');
+    }
     only_oct = true;
+    // Get significant figures for rounding later (ignoring frequency inputs since they are integers)
     var min_sigs = getSignificantDigitCount(oct_rate);
   } else {
+    // ERROR CHECKING
+    if (isNaN(vf_freq)) {
+      throw new Error('VF frequency is not a number.');
+    } else if (vf_freq < 1 || vf_freq > 12) {
+      throw new Error('VF frequency must be greater than 1 and less than 12, as we only calculated accuracy for that range.')
+    } else if (isNaN(Number(vf_rate))) {
+      throw new Error('VF rate is not a number.');
+    } else if (isNaN(oct_freq)) {
+      throw new Error('OCT frequency is not a number.');
+    } else if (oct_freq < 1 || oct_freq > 12) {
+      throw new Error('OCT frequency must be greater than 1 and less than 12, as we only calculated accuracy for that range.')
+    } else if (isNaN(Number(oct_rate))) {
+      throw new Error('OCT rate is not a number.');
+    }
     // Get significant figures for rounding later (ignoring frequency inputs since they are integers)
     vf_rate_sigs = getSignificantDigitCount(vf_rate);
     oct_rate_sigs = getSignificantDigitCount(oct_rate);
@@ -247,9 +309,9 @@ function getInputValue() {
   // Calculate accuracies
   var pct_array = calculateAccuracy(vf_freq, oct_freq, vf_rate, oct_rate);
   var vf_percent_correct = pct_array[0];
-  var vf_change = pct_array[1];
+  var vf_pctl = pct_array[1];
   var oct_percent_correct = pct_array[2];
-  var oct_change = pct_array[3];
+  var oct_pctl = pct_array[3];
   var combined_percent_correct = pct_array[4];
   //Round decimal places of accuracies to minimum sig figs from above
   vf_percent_correct = vf_percent_correct.toPrecision(min_sigs);
@@ -262,20 +324,20 @@ function getInputValue() {
     acc_table.rows[1].cells[0].innerHTML = vf_percent_correct;
     acc_table.rows[1].cells[1].innerHTML = "";
     acc_table.rows[1].cells[2].innerHTML = "";
-    pct_table.rows[1].cells[0].innerHTML = vf_change;
+    pct_table.rows[1].cells[0].innerHTML = vf_pctl.toFixed(1);
     pct_table.rows[1].cells[1].innerHTML = "";
   } else if (only_oct) {
     acc_table.rows[1].cells[0].innerHTML = "";
     acc_table.rows[1].cells[1].innerHTML = oct_percent_correct;
     acc_table.rows[1].cells[2].innerHTML = "";
     pct_table.rows[1].cells[0].innerHTML = "";
-    pct_table.rows[1].cells[1].innerHTML = oct_change.toPrecision(2);
+    pct_table.rows[1].cells[1].innerHTML = oct_pctl.toFixed(1);
   } else {
     acc_table.rows[1].cells[0].innerHTML = vf_percent_correct;
     acc_table.rows[1].cells[1].innerHTML = oct_percent_correct;
     acc_table.rows[1].cells[2].innerHTML = combined_percent_correct;
-    pct_table.rows[1].cells[0].innerHTML = vf_change;
-    pct_table.rows[1].cells[1].innerHTML = oct_change.toPrecision(2);
+    pct_table.rows[1].cells[0].innerHTML = vf_pctl.toFixed(1);
+    pct_table.rows[1].cells[1].innerHTML = oct_pctl.toFixed(1);
   }
   
 } 
