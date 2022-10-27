@@ -251,9 +251,9 @@ function getSignificantDigitCount(n) {
 // This is where all the values from the page are actually read in and then the table values are updated. 
 function getInputValue() {
   // Read in all inputs
-  var vf_freq = Math.round(document.getElementById("vfFreqInput").value);
+  var vf_freq = Number(document.getElementById("vfFreqInput").value);
   var vf_rate = document.getElementById("measurementInputVF1").value;
-  var oct_freq = Math.round(document.getElementById("octFreqInput").value);
+  var oct_freq = Number(document.getElementById("octFreqInput").value);
   var oct_rate = document.getElementById("measurementInputOCT1").value;
 
   // Flags to check if only VF or only OCT info has been input
