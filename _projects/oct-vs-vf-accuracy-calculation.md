@@ -177,33 +177,22 @@ function combinedAccuracy(vf_percent_correct, oct_percent_correct) {
 }
 
 // Function that handles the main information flow to perform the calculations.
-function calculateAccuracy(vf_freq, oct_freq, vf_input_type, oct_input_type, vf_measurement_input, oct_measurement_input) {
+function calculateAccuracy(vf_freq, oct_freq, vf_measurement_input, oct_measurement_input) {
   // VF Tables
   const vf_percentiles = [0.99,0.98,0.97,0.96,0.95,0.94,0.93,0.92,0.91,0.9,0.89,0.88,0.87,0.86,0.85,0.84,0.83,0.82,0.81,0.8,0.79,0.78,0.77,0.76,0.75,0.74,0.73,0.72,0.71,0.7,0.69,0.68,0.67,0.66,0.65,0.64,0.63,0.62,0.61,0.6,0.59,0.58,0.57,0.56,0.55,0.54,0.53,0.52,0.51,0.5];
   const db_pyear = [-2.375374179,-1.87072991,-1.55882768,-1.354906634,-1.209968329,-1.10005846,-1.004460165,-0.922879731,-0.850669103,-0.788616302,-0.73812498,-0.694618166,-0.657602418,-0.622323225,-0.594619155,-0.569041382,-0.545408203,-0.51918586,-0.495643593,-0.474408781,-0.455362716,-0.43417603,-0.41702764,-0.401546448,-0.38535631,-0.370813706,-0.357395279,-0.344351564,-0.332899923,-0.32056724,-0.30908592,-0.296439662,-0.284030788,-0.273758069,-0.263631487,-0.253395759,-0.242297973,-0.2336445,-0.223724021,-0.215218543,-0.206087714,-0.197988734,-0.189993294,-0.182100379,-0.174189643,-0.166953802,-0.159186689,-0.151801921,-0.144212655,-0.137260077];
   // OCT Tables
   const oct_percentiles = [0.99,0.98,0.97,0.96,0.95,0.94,0.93,0.92,0.91,0.9,0.89,0.88,0.87,0.86,0.85,0.84,0.83,0.82,0.81,0.8,0.79,0.78,0.77,0.76,0.75,0.74,0.73,0.72,0.71,0.7,0.69,0.68,0.67,0.66,0.65,0.64,0.63,0.62,0.61,0.6,0.59,0.58,0.57,0.56,0.55,0.54,0.53,0.52,0.51,0.5];
   const mic_pyear = [-59.10676741,-21.06141589,-10.61985367,-6.43719542,-4.867978254,-3.929476474,-3.29888707,-2.868740323,-2.575112527,-2.348728534,-2.172631297,-2.020366034,-1.899064351,-1.797026962,-1.68954472,-1.602117914,-1.533984613,-1.464555097,-1.407078688,-1.350655596,-1.296282342,-1.237350255,-1.181807662,-1.134068909,-1.088528277,-1.04379893,-1.000612736,-0.961338114,-0.92650516,-0.894411349,-0.862917964,-0.831970156,-0.798927213,-0.772183197,-0.7445282,-0.718996287,-0.69435203,-0.664350749,-0.639762671,-0.61411954,-0.591691858,-0.566843864,-0.546191311,-0.522478076,-0.500657912,-0.48070557,-0.457669937,-0.436351304,-0.415084497,-0.39408508];
-  // If vf_input_type not zero then they input percentile so get index using percentile column
   var vf_change = 0;
   var oct_change = 0;
-  if (vf_input_type) {
-    var vf_lookup_idx = closest(vf_measurement_input / 100, vf_percentiles);
-    vf_change = db_pyear[vf_lookup_idx];
-    // Else it was rate so get index using rate column
-  } else {
-    var vf_lookup_idx = closest(vf_measurement_input, db_pyear);
-    vf_change = vf_percentiles[vf_lookup_idx] * 100;
-  }
-  // If oct_input_type not zero then they input percentile so get index using percentile column
-  if (oct_input_type) {
-    var oct_lookup_idx = closest(oct_measurement_input / 100, percentiles);
-    oct_change = mic_pyear[oct_lookup_idx];
-    // Else it was rate so get index using rate column
-  } else {
-    var oct_lookup_idx = closest(oct_measurement_input, mic_pyear);
-    oct_change = oct_percentiles[oct_lookup_idx] * 100;
-  }
+  // Calculate VF information
+  var vf_lookup_idx = closest(vf_measurement_input, db_pyear);
+  vf_change = vf_percentiles[vf_lookup_idx] * 100;
+  // Calculate OCT information
+  var oct_lookup_idx = closest(oct_measurement_input, mic_pyear);
+  oct_change = oct_percentiles[oct_lookup_idx] * 100;
+  
   // Use the accuracy equations to calculate percent correct for everything
   var vf_percent_correct = accuracyEqn(vf_freq, vf_lookup_idx, 'vf');
   var oct_percent_correct = accuracyEqn(oct_freq, oct_lookup_idx, 'oct');
@@ -235,10 +224,8 @@ function getInputValue() {
   // Read in all inputs
   var vf_freq = Math.round(document.getElementById("vfFreqInput").value);
   var vf_rate = document.getElementById("measurementInputVF1").value;
-  var vf_pctl = null;
   var oct_freq = Math.round(document.getElementById("octFreqInput").value);
   var oct_rate = document.getElementById("measurementInputOCT1").value;
-  var oct_pctl = null;
   // Flags to check if only VF or only OCT info has been input
   var only_vf = false;
   var only_oct = false;
@@ -257,32 +244,8 @@ function getInputValue() {
     var min_sigs = Math.min(vf_rate_sigs, oct_rate_sigs);
   }
 
-  //If there are inputs for rate AND percentile for vf or oct then throw an error
-  if (vf_rate && vf_pctl) {
-    alert("Only input either VF rate OR VF percentile.");
-    throw new Error("Only input either VF rate OR VF percentile.");
-  // Else if vf_rate is input then set input type to rate
-  } else if (vf_rate) {
-    var vf_input_type = 0;
-    var vf_measurement_input = vf_rate;
-  } else if (vf_pctl) {
-    var vf_input_type = 1;
-    var vf_measurement_input = vf_pctl;
-  }
-  // Same as above
-  if (oct_rate && oct_pctl) {
-    alert("Only input either OCT rate OR OCT percentile.");
-    throw new Error("Only input either OCT rate OR OCT percentile.");
-  } else if (oct_rate) {
-    var oct_input_type = 0;
-    var oct_measurement_input = oct_rate;
-  } else if (oct_pctl) {
-    var oct_input_type = 1;
-    var oct_measurement_input = oct_pctl;
-  }
-
   // Calculate accuracies
-  var pct_array = calculateAccuracy(vf_freq, oct_freq, vf_input_type, oct_input_type, vf_measurement_input, oct_measurement_input);
+  var pct_array = calculateAccuracy(vf_freq, oct_freq, vf_rate, oct_rate);
   var vf_percent_correct = pct_array[0];
   var vf_change = pct_array[1];
   var oct_percent_correct = pct_array[2];
