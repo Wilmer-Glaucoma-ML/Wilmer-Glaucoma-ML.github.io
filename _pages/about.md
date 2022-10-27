@@ -6,7 +6,7 @@ subtitle: The convergence of science and patient care.
 
 profile:
   align: right
-  image: prof_pic.jpg
+  image: JHHEast.jpg
   image_circular: false # crops the image to make it circular
   address: >
     <p>1800 Orleans St</p>
