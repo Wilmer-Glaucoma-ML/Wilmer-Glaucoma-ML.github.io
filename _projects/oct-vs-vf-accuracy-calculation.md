@@ -29,11 +29,16 @@ input[type="value"] {
   border-radius: 0px;
 }
 
+body {
+  min-height: 400px;
+  margin-bottom: 60px;
+  clear: both;
+}
 footer {
-  position: absolute;
+  position: relative;
   bottom: 0;
-  width: 40%;
-  height: 1.5rem;            /* Footer height */
+  height: 60px;
+  color:
 }
 </style>
 
@@ -94,6 +99,7 @@ footer {
   <p id= "result"><b>Accuracy of detecting glaucoma worsening<sup>1</sup></b></p></center></div>
 
 <table class="tb" id="accuracyTable" style="width:100%">
+  <caption style="caption-side:bottom"><font size="-1"><sup>1</sup> In patients with glaucoma or glaucoma suspect status who were 18 years or older and followed at the Wilmer Eye Institute from  2013-2022.</font></caption>
   <tr>
     <td style="text-align:center"><b>VF Accuracy (%)</b></td>
     <td style="text-align:center"><b>OCT Accuracy (%)</b></td>
@@ -118,9 +124,7 @@ footer {
     <td style="text-align:center">&nbsp;</td>
   </tr>
 </table>
-<footer id="footer">
-<p><font size="-1"><sup>1</sup> In patients with glaucoma or glaucoma suspect status who were 18 years or older and followed at the Wilmer Eye Institute from  2013-2022.</font></p>
-</footer>
+</body>
 
 <script> 
 // Throws an alert pop up box whenever an error is thrown by the program.
@@ -361,4 +365,3 @@ function getInputValue() {
   
 } 
 </script>
-</body>
