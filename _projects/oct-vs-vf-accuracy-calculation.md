@@ -28,10 +28,17 @@ input[type="value"] {
   border: 2px solid black;
   border-radius: 0px;
 }
+
+footer {
+  position: absolute;
+  bottom: 0;
+  width: 40%;
+  height: 1.5rem;            /* Footer height */
+}
 </style>
 
 <body>
-  This calculator is valid for estimating accuracy over a 2-year period, but you should enter frequencies on a per-year basis. 
+  This calculator is valid for estimating accuracy over a 2-year period. However, VF and OCT measurement frequencies should be entered on a per-year basis. 
   <p></p>
     <div class="form-group">
       <label id="vfFreq-label" for="vfFreq"><b>Number of VFs per year &nbsp;&nbsp;</b></label>
@@ -84,7 +91,7 @@ input[type="value"] {
 
 <p></p>
 <div class="eqnAnswer"><center>
-  <p id= "result"><b>Accuracies</b></p></center></div>
+  <p id= "result"><b>Accuracy of detecting glaucoma worsening<sup>1</sup></b></p></center></div>
 
 <table class="tb" id="accuracyTable" style="width:100%">
   <tr>
@@ -98,7 +105,7 @@ input[type="value"] {
     <td style="text-align:center">&nbsp;</td>
   </tr>
 </table>
-<p><center><b>Percentiles</b></center></p>
+<p><center><b>Percentile rate of RNFL thickness or MD worsening</b></center></p>
 <br>
 
 <table class="tb" id="pctTable" style="width:100%">
@@ -111,6 +118,9 @@ input[type="value"] {
     <td style="text-align:center">&nbsp;</td>
   </tr>
 </table>
+<footer id="footer">
+<p><font size="-1"><sup>1</sup> In patients with glaucoma or glaucoma suspect status who were 18 years or older and followed at the Wilmer Eye Institute from  2013-2022.</font></p>
+</footer>
 
 <script> 
 // Throws an alert pop up box whenever an error is thrown by the program.
@@ -240,7 +250,7 @@ function getSignificantDigitCount(n) {
     dec_sent = true;
   }
   n = Math.abs(n.replace(".", "")); //remove decimal and make positive
-  if (n == 0) return 0;
+  if (n == 0) return 1;
   while (n != 0 && n % 10 == 0) n /= 10; //kill the 0s at the end of n
   if (dec_sent) {
     return Math.floor(Math.log(n) / Math.LN10)
@@ -265,7 +275,7 @@ function getInputValue() {
     if (isNaN(vf_freq)) {
       throw new Error('VF frequency is not a number.');
     } else if (vf_freq < 1 || vf_freq > 12) {
-      throw new Error('VF frequency must be greater than 1 and less than 12, as we only calculated accuracy for that range.')
+      throw new Error('VF frequency must be between 1 and 12, as we only calculated accuracy for that range.')
     } else if (isNaN(Number(vf_rate))) {
       throw new Error('VF rate is not a number.');
     }
@@ -278,7 +288,7 @@ function getInputValue() {
     if (isNaN(oct_freq)) {
       throw new Error('OCT frequency is not a number.');
     } else if (oct_freq < 1 || oct_freq > 12) {
-      throw new Error('OCT frequency must be greater than 1 and less than 12, as we only calculated accuracy for that range.')
+      throw new Error('OCT frequency must be between 1 and 12, as we only calculated accuracy for that range.')
     } else if (isNaN(Number(oct_rate))) {
       throw new Error('OCT rate is not a number.');
     }
@@ -314,9 +324,18 @@ function getInputValue() {
   var oct_pctl = pct_array[3];
   var combined_percent_correct = pct_array[4];
   //Round decimal places of accuracies to minimum sig figs from above
-  vf_percent_correct = vf_percent_correct.toPrecision(min_sigs);
-  oct_percent_correct = oct_percent_correct.toPrecision(min_sigs);
-  combined_percent_correct = combined_percent_correct.toPrecision(min_sigs);
+  if (min_sigs < 2) {
+    vf_percent_correct = vf_percent_correct.toPrecision(min_sigs);
+    vf_percent_correct = Number(vf_percent_correct).toFixed(0);
+    oct_percent_correct = oct_percent_correct.toPrecision(min_sigs);
+    oct_percent_correct = Number(oct_percent_correct).toFixed(0);
+    combined_percent_correct = combined_percent_correct.toPrecision(min_sigs);
+    combined_percent_correct = Number(combined_percent_correct).toFixed(0);
+  } else {
+    vf_percent_correct = vf_percent_correct.toPrecision(min_sigs);
+    oct_percent_correct = oct_percent_correct.toPrecision(min_sigs);
+    combined_percent_correct = combined_percent_correct.toPrecision(min_sigs);
+  }
   // Update tables
   var acc_table = document.getElementById('accuracyTable');
   var pct_table = document.getElementById('pctTable');
