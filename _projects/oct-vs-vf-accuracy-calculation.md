@@ -28,18 +28,6 @@ input[type="value"] {
   border: 2px solid black;
   border-radius: 0px;
 }
-
-body {
-  min-height: 400px;
-  margin-bottom: 60px;
-  clear: both;
-}
-footer {
-  position: relative;
-  bottom: 0;
-  height: 60px;
-  color:
-}
 </style>
 
 <body>
