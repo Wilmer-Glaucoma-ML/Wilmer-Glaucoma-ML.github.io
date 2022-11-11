@@ -84,10 +84,10 @@ input[type="value"] {
 
 <p></p>
 <div class="eqnAnswer"><center>
-  <p id= "result"><b>Accuracy of detecting glaucoma worsening<sup>1</sup></b></p></center></div>
+  <p id= "result"><b>Accuracy of detecting glaucoma worsening</b></p></center></div>
 
 <table class="tb" id="accuracyTable" style="width:100%">
-  <caption style="caption-side:bottom"><font size="-1"><sup>1</sup> In patients with glaucoma or glaucoma suspect status who were 18 years or older and followed at the Wilmer Eye Institute from  2013-2022.</font></caption>
+  <caption style="caption-side:bottom"><font size="-1">Accuracy is defined as the percentage of patients for whom the estimated "true" rate of RNFL or MD worsening — the rate without measurement error — is at or below the criterion rate(s) entered in the fields above. Accuracy was estimated from adult patients treated at the Wilmer Eye Institute for glaucoma or glaucoma suspect status from 2013-2021.</font></caption>
   <tr>
     <td style="text-align:center"><b>VF Accuracy (%)</b></td>
     <td style="text-align:center"><b>OCT Accuracy (%)</b></td>
@@ -103,6 +103,7 @@ input[type="value"] {
 <br>
 
 <table class="tb" id="pctTable" style="width:100%">
+  <caption style="caption-side:bottom"><font size="-1">The corresponding percentile rate of RNFL and/or MD worsening for the rates entered in the fields above based on an OCT sample of 12,150 eyes from 7,392 patients and a VF sample of 20,583 eyes from 10,958 patients.</font></caption>
   <tr>
     <td style="text-align:center"><b>VF Percentile (%)</b></td>
     <td style="text-align:center"><b>OCT Percentile (%)</b></td>
