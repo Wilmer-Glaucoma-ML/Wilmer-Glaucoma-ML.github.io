@@ -2,7 +2,7 @@
 # Site settings
 # -----------------------------------------------------------------------------
 
-title: Wilmer ML # the website title (if blank, full name will be used instead)
+title: Wilmer Glaucoma ML # the website title (if blank, full name will be used instead)
 first_name: Wilmer
 #middle_name: R.
 last_name: Glaucoma Machine Learning
@@ -221,8 +221,8 @@ display_tags: ['formatting', 'images', 'links', 'math', 'code'] # this tags will
 
 scholar:
 
-  last_name: Einstein
-  first_name: [Albert, A.]
+  last_name:
+  first_name:
 
   style: apa
   locale: en
