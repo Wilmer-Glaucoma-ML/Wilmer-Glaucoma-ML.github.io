@@ -248,6 +248,30 @@ nav_order: 3
     <div class="responsive-cell-block wk-desk-3 wk-ipadp-3 wk-tab-6 wk-mobile-12 card-container">
       <div class="card">
         <div class="team-image-wrapper">
+          <img src="/assets/img/members/01581_DSC_0271.jpg"
+            class="team-member-image" />
+        </div>
+        <p class="text-blk name">Jasdeep Sabharwal, M.D., Ph.D
+        </p>
+        <p class="text-blk position">Wilmer Eye Institute
+        </p>
+        <p class="text-blk feature-text">Research Fellow
+        </p>
+        <!-- <div class="social-icons">
+          <a href="https://www.twitter.com" target="_blank">
+            <img src="https://workik-widget-assets.s3.amazonaws.com/widget-assets/images/Icon.svg"
+              class="twitter-icon" />
+          </a>
+          <a href="https://www.facebook.com" target="_blank">
+            <img src="https://workik-widget-assets.s3.amazonaws.com/widget-assets/images/Icon-1.svg"
+              class="facebook-icon" />
+          </a>
+        </div> -->
+      </div>
+    </div>
+    <div class="responsive-cell-block wk-desk-3 wk-ipadp-3 wk-tab-6 wk-mobile-12 card-container">
+      <div class="card">
+        <div class="team-image-wrapper">
           <img src="/assets/img/members/Mathias.png"
             class="team-member-image" />
         </div>
@@ -255,7 +279,7 @@ nav_order: 3
         </p>
         <p class="text-blk position">Malone Center for Engineering in Healthcare
         </p>
-        <p class="text-blk feature-text">Description
+        <p class="text-blk feature-text">Co-Investigator
         </p>
         <div class="social-icons">
           <a href="https://mathiasunberath.github.io/" target="_blank">
@@ -305,16 +329,16 @@ nav_order: 3
         </p>
         <p class="text-blk feature-text">Principle Investigator 
         </p>
-        <!-- <div class="social-icons">
-          <a href="https://www.twitter.com" target="_blank">
-            <img src="https://workik-widget-assets.s3.amazonaws.com/widget-assets/images/Icon.svg"
-              class="twitter-icon" />
+        <div class="social-icons">
+          <a href="https://www.hopkinsmedicine.org/profiles/details/jithin-yohannan" target="_blank">
+            <img src="/assets/img/members/website_icon.png"
+              class="website-icon" />
           </a>
-          <a href="https://www.facebook.com" target="_blank">
+          <!-- <a href="https://www.facebook.com" target="_blank">
             <img src="https://workik-widget-assets.s3.amazonaws.com/widget-assets/images/Icon-1.svg"
               class="facebook-icon" />
-          </a>
-        </div> -->
+          </a> -->
+        </div>
       </div>
     </div>
   </div>
