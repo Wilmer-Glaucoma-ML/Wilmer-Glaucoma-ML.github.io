@@ -52,9 +52,9 @@ nav_order: 3
   /* margin-bottom:60px; */
   margin-left:auto;
   padding-top:0px;
-  padding-right:30px;
+  padding-right:15px;
   padding-bottom:0px;
-  padding-left:30px;
+  padding-left:15px;
 }
 .card{
   text-align:center;
