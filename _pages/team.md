@@ -195,7 +195,7 @@ nav_order: 3
         </p>
         <div class="social-icons">
           <a href="https://www.linkedin.com/in/pherbert3/" target="_blank">
-            <img src="/assets/img/members/LinkedIn_icon2.svg.png"
+            <img src="/assets/img/members/LinkedIn_icon2.png"
               class="linkedin-icon" />
           </a>
           <!-- <a href="https://www.facebook.com" target="_blank">
@@ -219,7 +219,7 @@ nav_order: 3
         </p>
         <div class="social-icons">
           <a href="https://kaihua-hou.com/" target="_blank">
-            <img src="/assets/img/members/website_icon.png"
+            <img src="/assets/img/members/website_icon2.png"
               class="website-icon" />
           </a>
           <!-- <a href="https://www.facebook.com" target="_blank">
@@ -291,7 +291,7 @@ nav_order: 3
         </p>
         <div class="social-icons">
           <a href="https://mathiasunberath.github.io/" target="_blank">
-            <img src="/assets/img/members/website_icon.png"
+            <img src="/assets/img/members/website_icon2.png"
               class="website-icon" />
           </a>
           <!-- <a href="https://www.facebook.com" target="_blank">
@@ -315,7 +315,7 @@ nav_order: 3
         </p>
         <div class="social-icons">
           <a href="https://www.linkedin.com/in/rachel-wang-065532199/" target="_blank">
-            <img src="/assets/img/members/LinkedIn_icon2.svg.png"
+            <img src="/assets/img/members/LinkedIn_icon2.png"
               class="linkedin-icon" />
           </a>
           <!-- <a href="https://www.facebook.com" target="_blank">
@@ -339,7 +339,7 @@ nav_order: 3
         </p>
         <div class="social-icons">
           <a href="https://www.hopkinsmedicine.org/profiles/details/jithin-yohannan" target="_blank">
-            <img src="/assets/img/members/website_icon.png"
+            <img src="/assets/img/members/website_icon2.png"
               class="website-icon" />
           </a>
           <!-- <a href="https://www.facebook.com" target="_blank">
