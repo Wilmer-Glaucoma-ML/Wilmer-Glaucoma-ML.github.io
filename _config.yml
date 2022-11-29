@@ -6,7 +6,7 @@ title: Wilmer Glaucoma ML # the website title (if blank, full name will be used 
 first_name: Wilmer
 #middle_name: R.
 last_name: Glaucoma Machine Learning
-email: you@example.com
+email: jyohann1@jhmi.edu
 description: > # the ">" symbol means to ignore newlines until "footer_text:"
   Exploring the intersection of glaucoma and machine learning to improve patient care.
 # footer_text: >
@@ -43,7 +43,7 @@ repo_theme_dark: dark           # https://github.com/anuraghazra/github-readme-s
 # will use title and url fields
 # Take a look to https://github.com/jekyll/jekyll-feed for more customization
 
-rss_icon: true
+rss_icon: false
 
 # -----------------------------------------------------------------------------
 # Layout
@@ -87,7 +87,7 @@ dblp_url: # your DBLP profile url
 stackoverflow_id: #your stackoverflow id
 
 contact_note: >
-  You can even add a little note about which of these is the best way to reach you.
+  Contact Us
 
 # -----------------------------------------------------------------------------
 # Analytics and search engine verification

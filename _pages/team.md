@@ -64,8 +64,10 @@ nav_order: 3
   align-items:center;
   padding-top:30px;
   padding-right:25px;
-  padding-bottom:30px;
+  padding-bottom:15px;
   padding-left:25px;
+  min-height:385px;
+  max-height:385px;
 }
 .card-container{
   width:280px;
@@ -73,6 +75,7 @@ nav_order: 3
   margin-right:10px;
   margin-bottom:25px;
   margin-left:10px;
+  
 }
 .name{
   margin-top:20px;
@@ -88,6 +91,7 @@ nav_order: 3
   margin-bottom:10px;
   margin-left:0px;
 }
+
 .feature-text{
   margin-top:0px;
   margin-right:0px;
@@ -97,6 +101,8 @@ nav_order: 3
   line-height:30px;
 }
 .social-icons{
+  position:absolute;
+  bottom:15px;
   width:20px;
   display:flex;
   justify-content:space-between;
@@ -105,6 +111,7 @@ nav_order: 3
   clip-path:circle(50% at 50% 50%);
   width:130px;
   height:130px;
+  
 }
 .team-member-image {
   max-width: 100%;
@@ -114,10 +121,11 @@ nav_order: 3
     width:100%;
     margin-top:0px;
     margin-right:0px;
-    margin-bottom:25px;
+    margin-bottom:5px;
     margin-left:0px;
   }
 }  
+
 </style>
 
 <div class="responsive-container-block container">
