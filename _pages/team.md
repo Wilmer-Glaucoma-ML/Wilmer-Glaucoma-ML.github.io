@@ -46,7 +46,7 @@ nav_order: 3
   margin-left:0px;
 }
 .container{
-  max-width:1380px;
+  max-width:1200px;
   margin-top:0px;
   margin-right:auto;
   /* margin-bottom:60px; */
