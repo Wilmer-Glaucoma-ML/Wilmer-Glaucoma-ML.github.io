@@ -139,7 +139,7 @@ nav_order: 3
           <img src="/assets/img/members/Louay_photo.JPG"
             class="team-member-image" />
         </div>
-        <p class="text-blk name">Louay Almadia
+        <p class="text-blk name">Louay Almidani
         </p>
         <p class="text-blk position">Wilmer Eye Institute
         </p>
@@ -184,6 +184,30 @@ nav_order: 3
     <div class="responsive-cell-block wk-desk-3 wk-ipadp-3 wk-tab-6 wk-mobile-12 card-container">
       <div class="card">
         <div class="team-image-wrapper">
+          <img src="/assets/img/members/Jason Dossantos Photo.jpeg"
+            class="team-member-image" />
+        </div>
+        <p class="text-blk name">Jason Dossantos
+        </p>
+        <p class="text-blk position">Wilmer Eye Institute
+        </p>
+        <p class="text-blk feature-text">Research Fellow
+        </p>
+        <!-- <div class="social-icons">
+          <a href="https://www.twitter.com" target="_blank">
+            <img src="https://workik-widget-assets.s3.amazonaws.com/widget-assets/images/Icon.svg"
+              class="twitter-icon" />
+          </a>
+          <a href="https://www.facebook.com" target="_blank">
+            <img src="https://workik-widget-assets.s3.amazonaws.com/widget-assets/images/Icon-1.svg"
+              class="facebook-icon" />
+          </a>
+        </div> -->
+      </div>
+    </div>
+    <div class="responsive-cell-block wk-desk-3 wk-ipadp-3 wk-tab-6 wk-mobile-12 card-container">
+      <div class="card">
+        <div class="team-image-wrapper">
           <img src="/assets/img/members/me.jpg"
             class="team-member-image" />
         </div>
@@ -208,34 +232,10 @@ nav_order: 3
     <div class="responsive-cell-block wk-desk-3 wk-ipadp-3 wk-tab-6 wk-mobile-12 card-container">
       <div class="card">
         <div class="team-image-wrapper">
-          <img src="/assets/img/members/Hou.JPG"
+          <img src="/assets/img/members/wei_chen_li.jpg"
             class="team-member-image" />
         </div>
-        <p class="text-blk name">Kaihua Hou
-        </p>
-        <p class="text-blk position">Malone Center for Engineering in Healthcare
-        </p>
-        <p class="text-blk feature-text">Machine Learning Engineer
-        </p>
-        <div class="social-icons">
-          <a href="https://kaihua-hou.com/" target="_blank">
-            <img src="/assets/img/members/website_icon2.png"
-              class="website-icon" />
-          </a>
-          <!-- <a href="https://www.facebook.com" target="_blank">
-            <img src="https://workik-widget-assets.s3.amazonaws.com/widget-assets/images/Icon-1.svg"
-              class="facebook-icon" />
-          </a> -->
-        </div>
-      </div>
-    </div>
-    <div class="responsive-cell-block wk-desk-3 wk-ipadp-3 wk-tab-6 wk-mobile-12 card-container">
-      <div class="card">
-        <div class="team-image-wrapper">
-          <img src="/assets/img/members/alexpham.jpg"
-            class="team-member-image" />
-        </div>
-        <p class="text-blk name">Alex Pham
+        <p class="text-blk name">Wei Chen Li
         </p>
         <p class="text-blk position">Wilmer Eye Institute
         </p>
@@ -256,10 +256,58 @@ nav_order: 3
     <div class="responsive-cell-block wk-desk-3 wk-ipadp-3 wk-tab-6 wk-mobile-12 card-container">
       <div class="card">
         <div class="team-image-wrapper">
-          <img src="/assets/img/members/01581_DSC_0271.jpg"
+          <img src="/assets/img/members/annabelle_hs.jpeg"
             class="team-member-image" />
         </div>
-        <p class="text-blk name">Jasdeep Sabharwal, M.D., Ph.D
+        <p class="text-blk name">Annabelle Pan
+        </p>
+        <p class="text-blk position">Wilmer Eye Institute
+        </p>
+        <p class="text-blk feature-text">Research Fellow
+        </p>
+        <!-- <div class="social-icons">
+          <a href="https://www.twitter.com" target="_blank">
+            <img src="https://workik-widget-assets.s3.amazonaws.com/widget-assets/images/Icon.svg"
+              class="twitter-icon" />
+          </a>
+          <a href="https://www.facebook.com" target="_blank">
+            <img src="https://workik-widget-assets.s3.amazonaws.com/widget-assets/images/Icon-1.svg"
+              class="facebook-icon" />
+          </a>
+        </div> -->
+      </div>
+    </div>
+    <div class="responsive-cell-block wk-desk-3 wk-ipadp-3 wk-tab-6 wk-mobile-12 card-container">
+      <div class="card">
+        <div class="team-image-wrapper">
+          <img src="/assets/img/members/mitchell_lowres_hs.jpg"
+            class="team-member-image" />
+        </div>
+        <p class="text-blk name">Mitchell Pavlak
+        </p>
+        <p class="text-blk position">Malone Center for Engineering in Healthcare
+        </p>
+        <p class="text-blk feature-text">Ph.D Candidate / Machine Learning Engineer
+        </p>
+        <!-- <div class="social-icons">
+          <a href="https://www.twitter.com" target="_blank">
+            <img src="https://workik-widget-assets.s3.amazonaws.com/widget-assets/images/Icon.svg"
+              class="twitter-icon" />
+          </a>
+          <a href="https://www.facebook.com" target="_blank">
+            <img src="https://workik-widget-assets.s3.amazonaws.com/widget-assets/images/Icon-1.svg"
+              class="facebook-icon" />
+          </a>
+        </div> -->
+      </div>
+    </div>
+    <div class="responsive-cell-block wk-desk-3 wk-ipadp-3 wk-tab-6 wk-mobile-12 card-container">
+      <div class="card">
+        <div class="team-image-wrapper">
+          <img src="/assets/img/members/alex_hs.jpg"
+            class="team-member-image" />
+        </div>
+        <p class="text-blk name">Alex Pham
         </p>
         <p class="text-blk position">Wilmer Eye Institute
         </p>
@@ -328,7 +376,7 @@ nav_order: 3
     <div class="responsive-cell-block wk-desk-3 wk-ipadp-3 wk-tab-6 wk-mobile-12 card-container">
       <div class="card">
         <div class="team-image-wrapper">
-          <img src="/assets/img/members/YOHANNAN jithin.jpg"
+          <img src="/assets/img/members/Jithin Yohannan_042023.jpg"
             class="team-member-image" />
         </div>
         <p class="text-blk name">Jithin Yohannan, M.D., M.P.H.
