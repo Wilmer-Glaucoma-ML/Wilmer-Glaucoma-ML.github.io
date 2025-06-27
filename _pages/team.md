@@ -184,31 +184,7 @@ nav_order: 3
     <div class="responsive-cell-block wk-desk-3 wk-ipadp-3 wk-tab-6 wk-mobile-12 card-container">
       <div class="card">
         <div class="team-image-wrapper">
-          <img src="/assets/img/members/Jason Dossantos Photo.jpeg"
-            class="team-member-image" />
-        </div>
-        <p class="text-blk name">Jason Dossantos
-        </p>
-        <p class="text-blk position">Wilmer Eye Institute
-        </p>
-        <p class="text-blk feature-text">Research Fellow
-        </p>
-        <!-- <div class="social-icons">
-          <a href="https://www.twitter.com" target="_blank">
-            <img src="https://workik-widget-assets.s3.amazonaws.com/widget-assets/images/Icon.svg"
-              class="twitter-icon" />
-          </a>
-          <a href="https://www.facebook.com" target="_blank">
-            <img src="https://workik-widget-assets.s3.amazonaws.com/widget-assets/images/Icon-1.svg"
-              class="facebook-icon" />
-          </a>
-        </div> -->
-      </div>
-    </div>
-    <div class="responsive-cell-block wk-desk-3 wk-ipadp-3 wk-tab-6 wk-mobile-12 card-container">
-      <div class="card">
-        <div class="team-image-wrapper">
-          <img src="/assets/img/members/me.jpg"
+          <img src="/assets/img/members/patrick_herbert_photo.jpg"
             class="team-member-image" />
         </div>
         <p class="text-blk name">Patrick Herbert
@@ -232,36 +208,12 @@ nav_order: 3
     <div class="responsive-cell-block wk-desk-3 wk-ipadp-3 wk-tab-6 wk-mobile-12 card-container">
       <div class="card">
         <div class="team-image-wrapper">
-          <img src="/assets/img/members/wei_chen_li.jpg"
-            class="team-member-image" />
-        </div>
-        <p class="text-blk name">Wei Chen Li
-        </p>
-        <p class="text-blk position">Wilmer Eye Institute
-        </p>
-        <p class="text-blk feature-text">Research Fellow
-        </p>
-        <!-- <div class="social-icons">
-          <a href="https://www.twitter.com" target="_blank">
-            <img src="https://workik-widget-assets.s3.amazonaws.com/widget-assets/images/Icon.svg"
-              class="twitter-icon" />
-          </a>
-          <a href="https://www.facebook.com" target="_blank">
-            <img src="https://workik-widget-assets.s3.amazonaws.com/widget-assets/images/Icon-1.svg"
-              class="facebook-icon" />
-          </a>
-        </div> -->
-      </div>
-    </div>
-    <div class="responsive-cell-block wk-desk-3 wk-ipadp-3 wk-tab-6 wk-mobile-12 card-container">
-      <div class="card">
-        <div class="team-image-wrapper">
           <img src="/assets/img/members/annabelle_hs.jpeg"
             class="team-member-image" />
         </div>
         <p class="text-blk name">Annabelle Pan
         </p>
-        <p class="text-blk position">Wilmer Eye Institute
+        <p class="text-blk position">UCSF Wayne and Gladys Valley Center for Vision
         </p>
         <p class="text-blk feature-text">Research Fellow
         </p>
@@ -301,6 +253,30 @@ nav_order: 3
         </div> -->
       </div>
     </div>
+        <div class="responsive-cell-block wk-desk-3 wk-ipadp-3 wk-tab-6 wk-mobile-12 card-container">
+      <div class="card">
+        <div class="team-image-wrapper">
+          <img src="/assets/img/members/Kenneth_Peng_Photo.jpg"
+            class="team-member-image" />
+        </div>
+        <p class="text-blk name">Kenneth Peng
+        </p>
+        <p class="text-blk position">Wilmer Eye Institute
+        </p>
+        <p class="text-blk feature-text">Research Fellow
+        </p>
+        <!-- <div class="social-icons">
+          <a href="https://www.twitter.com" target="_blank">
+            <img src="https://workik-widget-assets.s3.amazonaws.com/widget-assets/images/Icon.svg"
+              class="twitter-icon" />
+          </a>
+          <a href="https://www.facebook.com" target="_blank">
+            <img src="https://workik-widget-assets.s3.amazonaws.com/widget-assets/images/Icon-1.svg"
+              class="facebook-icon" />
+          </a>
+        </div> -->
+      </div>
+    </div>
     <div class="responsive-cell-block wk-desk-3 wk-ipadp-3 wk-tab-6 wk-mobile-12 card-container">
       <div class="card">
         <div class="team-image-wrapper">
@@ -312,6 +288,30 @@ nav_order: 3
         <p class="text-blk position">Wilmer Eye Institute
         </p>
         <p class="text-blk feature-text">Research Fellow
+        </p>
+        <!-- <div class="social-icons">
+          <a href="https://www.twitter.com" target="_blank">
+            <img src="https://workik-widget-assets.s3.amazonaws.com/widget-assets/images/Icon.svg"
+              class="twitter-icon" />
+          </a>
+          <a href="https://www.facebook.com" target="_blank">
+            <img src="https://workik-widget-assets.s3.amazonaws.com/widget-assets/images/Icon-1.svg"
+              class="facebook-icon" />
+          </a>
+        </div> -->
+      </div>
+    </div>
+        <div class="responsive-cell-block wk-desk-3 wk-ipadp-3 wk-tab-6 wk-mobile-12 card-container">
+      <div class="card">
+        <div class="team-image-wrapper">
+          <img src="/assets/img/members/saeid_rasouli_photo.jpg"
+            class="team-member-image" />
+        </div>
+        <p class="text-blk name">Saeid Rasouli
+        </p>
+        <p class="text-blk position">Wilmer Eye Institute
+        </p>
+        <p class="text-blk feature-text">Post-Doc
         </p>
         <!-- <div class="social-icons">
           <a href="https://www.twitter.com" target="_blank">
@@ -341,30 +341,6 @@ nav_order: 3
           <a href="https://mathiasunberath.github.io/" target="_blank">
             <img src="/assets/img/members/website_icon2.png"
               class="website-icon" />
-          </a>
-          <!-- <a href="https://www.facebook.com" target="_blank">
-            <img src="https://workik-widget-assets.s3.amazonaws.com/widget-assets/images/Icon-1.svg"
-              class="facebook-icon" />
-          </a> -->
-        </div>
-      </div>
-    </div>
-    <div class="responsive-cell-block wk-desk-3 wk-ipadp-3 wk-tab-6 wk-mobile-12 card-container">
-      <div class="card">
-        <div class="team-image-wrapper">
-          <img src="/assets/img/members/Rachel.jpeg"
-            class="team-member-image" />
-        </div>
-        <p class="text-blk name">Ruolin Wang
-        </p>
-        <p class="text-blk position">Malone Center for Engineering in Healthcare
-        </p>
-        <p class="text-blk feature-text">Machine Learning Engineer
-        </p>
-        <div class="social-icons">
-          <a href="https://www.linkedin.com/in/rachel-wang-065532199/" target="_blank">
-            <img src="/assets/img/members/LinkedIn_icon2.png"
-              class="linkedin-icon" />
           </a>
           <!-- <a href="https://www.facebook.com" target="_blank">
             <img src="https://workik-widget-assets.s3.amazonaws.com/widget-assets/images/Icon-1.svg"
