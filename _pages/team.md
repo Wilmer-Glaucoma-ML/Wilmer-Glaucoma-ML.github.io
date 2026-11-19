@@ -136,30 +136,6 @@ nav_order: 3
     <div class="responsive-cell-block wk-desk-3 wk-ipadp-3 wk-tab-6 wk-mobile-12 card-container">
       <div class="card">
         <div class="team-image-wrapper">
-          <img src="/assets/img/members/Louay_photo.JPG"
-            class="team-member-image" />
-        </div>
-        <p class="text-blk name">Louay Almidani
-        </p>
-        <p class="text-blk position">Wilmer Eye Institute
-        </p>
-        <p class="text-blk feature-text">Research Fellow
-        </p>
-        <!-- <div class="social-icons">
-          <a href="https://www.twitter.com" target="_blank">
-            <img src="https://workik-widget-assets.s3.amazonaws.com/widget-assets/images/Icon.svg"
-              class="twitter-icon" />
-          </a>
-          <a href="https://www.facebook.com" target="_blank">
-            <img src="https://workik-widget-assets.s3.amazonaws.com/widget-assets/images/Icon-1.svg"
-              class="facebook-icon" />
-          </a>
-        </div> -->
-      </div>
-    </div>
-    <div class="responsive-cell-block wk-desk-3 wk-ipadp-3 wk-tab-6 wk-mobile-12 card-container">
-      <div class="card">
-        <div class="team-image-wrapper">
           <img src="/assets/img/members/chris-bradley - Copy.jpeg"
             class="team-member-image" />
         </div>
@@ -184,49 +160,57 @@ nav_order: 3
     <div class="responsive-cell-block wk-desk-3 wk-ipadp-3 wk-tab-6 wk-mobile-12 card-container">
       <div class="card">
         <div class="team-image-wrapper">
-          <img src="/assets/img/members/patrick_herbert_photo.jpg"
+          <img src="/assets/img/members/default_avatar.svg"
             class="team-member-image" />
         </div>
-        <p class="text-blk name">Patrick Herbert
+        <p class="text-blk name">Joshua Foster
         </p>
-        <p class="text-blk position">Wilmer Eye Institute / Malone Center for Engineering in Healthcare
+        <p class="text-blk position">Wilmer Eye Institute
         </p>
-        <p class="text-blk feature-text">Machine Learning Engineer
+        <p class="text-blk feature-text">Research Fellow
         </p>
-        <div class="social-icons">
-          <a href="https://www.linkedin.com/in/pherbert3/" target="_blank">
-            <img src="/assets/img/members/LinkedIn_icon2.png"
-              class="linkedin-icon" />
-          </a>
-          <!-- <a href="https://www.facebook.com" target="_blank">
-            <img src="https://workik-widget-assets.s3.amazonaws.com/widget-assets/images/Icon-1.svg"
-              class="facebook-icon" />
-          </a> -->
-        </div>
       </div>
     </div>
     <div class="responsive-cell-block wk-desk-3 wk-ipadp-3 wk-tab-6 wk-mobile-12 card-container">
       <div class="card">
         <div class="team-image-wrapper">
-          <img src="/assets/img/members/annabelle_hs.jpeg"
+          <img src="/assets/img/members/default_avatar.svg"
             class="team-member-image" />
         </div>
-        <p class="text-blk name">Annabelle Pan
+        <p class="text-blk name">Ferdinando Giuliano
         </p>
-        <p class="text-blk position">UCSF Wayne and Gladys Valley Center for Vision
+        <p class="text-blk position">Wilmer Eye Institute
         </p>
         <p class="text-blk feature-text">Research Fellow
         </p>
-        <!-- <div class="social-icons">
-          <a href="https://www.twitter.com" target="_blank">
-            <img src="https://workik-widget-assets.s3.amazonaws.com/widget-assets/images/Icon.svg"
-              class="twitter-icon" />
-          </a>
-          <a href="https://www.facebook.com" target="_blank">
-            <img src="https://workik-widget-assets.s3.amazonaws.com/widget-assets/images/Icon-1.svg"
-              class="facebook-icon" />
-          </a>
-        </div> -->
+      </div>
+    </div>
+    <div class="responsive-cell-block wk-desk-3 wk-ipadp-3 wk-tab-6 wk-mobile-12 card-container">
+      <div class="card">
+        <div class="team-image-wrapper">
+          <img src="/assets/img/members/default_avatar.svg"
+            class="team-member-image" />
+        </div>
+        <p class="text-blk name">Zain Hussain
+        </p>
+        <p class="text-blk position">Wilmer Eye Institute
+        </p>
+        <p class="text-blk feature-text">Research Fellow
+        </p>
+      </div>
+    </div>
+    <div class="responsive-cell-block wk-desk-3 wk-ipadp-3 wk-tab-6 wk-mobile-12 card-container">
+      <div class="card">
+        <div class="team-image-wrapper">
+          <img src="/assets/img/members/default_avatar.svg"
+            class="team-member-image" />
+        </div>
+        <p class="text-blk name">Luqman Munir
+        </p>
+        <p class="text-blk position">Wilmer Eye Institute
+        </p>
+        <p class="text-blk feature-text">Research Fellow
+        </p>
       </div>
     </div>
     <div class="responsive-cell-block wk-desk-3 wk-ipadp-3 wk-tab-6 wk-mobile-12 card-container">
@@ -280,25 +264,15 @@ nav_order: 3
     <div class="responsive-cell-block wk-desk-3 wk-ipadp-3 wk-tab-6 wk-mobile-12 card-container">
       <div class="card">
         <div class="team-image-wrapper">
-          <img src="/assets/img/members/alex_hs.jpg"
+          <img src="/assets/img/members/default_avatar.svg"
             class="team-member-image" />
         </div>
-        <p class="text-blk name">Alex Pham
+        <p class="text-blk name">Ryan Yue
         </p>
         <p class="text-blk position">Wilmer Eye Institute
         </p>
         <p class="text-blk feature-text">Research Fellow
         </p>
-        <!-- <div class="social-icons">
-          <a href="https://www.twitter.com" target="_blank">
-            <img src="https://workik-widget-assets.s3.amazonaws.com/widget-assets/images/Icon.svg"
-              class="twitter-icon" />
-          </a>
-          <a href="https://www.facebook.com" target="_blank">
-            <img src="https://workik-widget-assets.s3.amazonaws.com/widget-assets/images/Icon-1.svg"
-              class="facebook-icon" />
-          </a>
-        </div> -->
       </div>
     </div>
         <div class="responsive-cell-block wk-desk-3 wk-ipadp-3 wk-tab-6 wk-mobile-12 card-container">
