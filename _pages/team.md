@@ -174,7 +174,7 @@ nav_order: 3
     <div class="responsive-cell-block wk-desk-3 wk-ipadp-3 wk-tab-6 wk-mobile-12 card-container">
       <div class="card">
         <div class="team-image-wrapper">
-          <img src="/assets/img/members/default_avatar.svg"
+          <img src="/assets/img/members/ferdinando_giuliano.jpg"
             class="team-member-image" />
         </div>
         <p class="text-blk name">Ferdinando Giuliano
